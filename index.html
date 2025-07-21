@@ -17,20 +17,46 @@ document.addEventListener('keydown', e => {
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+<style>
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  
+  font-family: Arial, sans-serif;
+}
+.stars, .stars2, .stars3 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+  background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/starfield.png') repeat top center;
+  z-index: -1;
+  animation: moveBackground 200s linear infinite;
+}
+@keyframes moveBackground {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1000px); }
+}
+</style>
+<div class="stars"></div>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Auristar 遊戲商城 - 完整版</title>
+<title>Auristar 遊戲商城 </title>
 <style>
   body {
     font-family: "微軟正黑體", sans-serif;
-    background: #f5f5f7;
+    background: #0a0a0a;
     margin: 0;
     padding: 20px;
   }
   .container {
     max-width: 900px;
     margin: auto;
-    background: #fff;
+    background: #a0a152;
     padding: 20px 30px;
     border-radius: 6px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -44,7 +70,7 @@ document.addEventListener('keydown', e => {
     display: block;
     margin: 14px 0 6px;
     font-weight: bold;
-    color: #333;
+    color: #000000;
   }
   select,
   input[type="number"] {
@@ -217,8 +243,7 @@ drawStars();
 <script>
 (() => {
   const webhookURL = "https://discord.com/api/webhooks/1391778744770760816/8QMe0frjWpkfSZu5J_Yhs5zUzXkx4LatvkmcUWUiho6AmqIWbOXgR_t2IcAclX37GxqR";
-
-  // 商品資料結構
+// 商品資料結構
   const products = {
     roblox: {
       subcats: ["帳號", "代儲", "代購"],
@@ -314,16 +339,29 @@ drawStars();
             { name: "傳奇鑰匙組合包 (4999R)", price: 1000 }
           ],
           "Grow a Garden": [
-            { name: "蜻蜓", price: 150 },
-            { name: "蜂女王", price: 150 },
+            { name: "九尾狐", price: 1900 },
+            { name: "Disco 蜜蜂", price: 400 },
+            { name: "浣熊", price: 300 },
             { name: "蝴蝶", price: 200 },
-            { name: "浣熊", price: 200 },
-            { name: "迪斯可蜜蜂", price: 200 },
             { name: "章魚", price: 150 },
-            { name: "EXOTIC SUMMER SEED PACK*3", price: 150 },
-            { name: "EXOTIC SUMMER SEED PACK*10", price: 350 },
-            { name: "PREMIUM OAISIS EGG*3", price: 100 },
-            { name: "PREMIUM OAISIS EGG*10", price: 280 }
+            { name: "蜻蜓", price: 200 },
+            { name: "暴龍", price: 200 },
+            { name: "蜂女王", price: 150 },
+            { name: "耳廓狐", price: 250 },
+            { name: "棘龍", price: 250 },
+            { name: "狐狸", price: 100 },
+            { name: "殭屍雞", price: 100 },
+            { name: "雷龍", price: 100 },
+            { name: "月貓", price: 70 },
+            { name: "血月刺蝟", price: 70 },
+            { name: "60-year-old Pet", price: 100 },
+            { name: "75-year-old Pet", price: 150 },
+            { name: "744T Plant", price: 10 },
+            { name: "抽抽樂1抽(詳細至dc詢問https://discord.gg/jt4ZvhnCDQ)", price: 125 },
+            { name: " EXOTIC ZEN SEED PACK*3", price: 150 },
+            { name: " EXOTIC ZEN SEED PACK*10", price: 350 },
+            { name: " PREMIUM PRIMAL EGG*3", price: 100 },
+            { name: " PREMIUM PRIMAL EGG*10", price: 280 }
           ]
         },
         "遊戲贈禮服務（自訂金額）": "custom"
@@ -500,7 +538,7 @@ drawStars();
     }
     step4Div.classList.remove("hidden");
 
-    if (selectedTier3 === "遊戲贈禮服務（自訂金額）") {
+    if (selectedTier3 === "遊戲贈禮服務（自訂金額 *0.18）") {
       // 顯示自訂金額輸入框
       tier4Sel.classList.add("hidden");
       customAmountDiv.classList.remove("hidden");
